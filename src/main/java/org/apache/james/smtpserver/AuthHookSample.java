@@ -7,9 +7,10 @@ import org.apache.james.protocols.smtp.hook.AuthHook;
 import org.apache.james.protocols.smtp.hook.HookResult;
 
 /**
- * This Auth hook can be used to authenticate against the james user repository
+ * This AuthHookSample hook can be used to authenticate against the james user repository
  */
 public class AuthHookSample implements AuthHook {
+
     @Override
     public void destroy() {
         // TODO Auto-generated method stub
@@ -23,8 +24,12 @@ public class AuthHookSample implements AuthHook {
     }
 
     @Override
-    public HookResult doAuth(SMTPSession arg0, String arg1, String arg2) {
+    public HookResult doAuth(SMTPSession session, String username, String password) {
         // TODO Auto-generated method stub
-        return null;
+        System.out.println("username : " + username);
+        System.out.println("password : " + password);
+        
+        return HookResult.OK;
     }
+    
 }
